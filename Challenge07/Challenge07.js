@@ -325,13 +325,12 @@ const classesAvg = (data) => {
     //console.log(data.grades.length);
     for(let i=0 ; i < data.grades.length ; i++){
        for(let x=0 ; x < data.grades[i].numberOFClasses ; x++){
-            //sum = data.grades[i].classes[x].classScores.reduce(function(a,b){return a+b},0);
-             data.grades[i].classes[x].classScores.forEach(y => {
-                 sum += y ;
-              });
+            sum = data.grades[i].classes[x].classScores.reduce(function(a,b){return a+b},0);
+            // data.grades[i].classes[x].classScores.forEach(y => {
+             //    sum += y ;
+             // });
            // sum = lodash.sum(data.grades[i].classes[x].classScores);
-            data.grades[i].classes[x].avg = (sum / (data.grades[i].classes[x].classScores.length));
-            data.grades[i].classes[x].avg = Math.floor(data.grades[i].classes[x].avg);
+            data.grades[i].classes[x].avg = Math.floor(sum / (data.grades[i].classes[x].classScores.length));
         } //each class
         sum=0;
         }// each Grade 
