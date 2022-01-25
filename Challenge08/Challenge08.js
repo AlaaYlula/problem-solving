@@ -27,13 +27,15 @@
 // -------------------------------------------------------------------------------------------------------
 
 const customerAndAge = (obj) => {
-    // write your code here
+  // write your code here
+  
     let arr = [];
     for (let property in obj) {
         arr.push(`Customer Name :${property} , Age :${obj[property]}`);
     }
     return arr;
 };
+
 
 // -------------------------------------------------------------------------------------------------------
 // Challenge 02
@@ -59,8 +61,8 @@ const customerAndAge = (obj) => {
 // -------------------------------------------------------------------------------------------------------
 
 const getEntries = (obj) => {
-    // write your code here
-    let entries = Object.entries(obj);
+  // write your code here
+  let entries = Object.entries(obj);
     let arr = [];
     let str = "";
     for (let i = 0; i < entries.length; i++) {
@@ -88,61 +90,63 @@ const getEntries = (obj) => {
 // -------------------------------------------------------------------------------------------------------
 
 const courses = [
-    {
-        course: 'Java',
-        Instructor: 'David',
-        Students: ['Lincoln', 'Ruth', 'Briana', 'Suzy', 'Greta'],
-        GroupName: 'Stars',
-    },
-    {
-        course: 'JavaScript',
-        Instructor: 'Van',
-        Students: ['Alphonso', 'Daley', 'Dax', 'Karter', 'Jorja'],
-        GroupName: 'Nerd-ware',
-    },
-    {
-        course: 'Python',
-        Instructor: 'Delaney',
-        Students: ['Barney', 'Kalé', 'Alisha'],
-        GroupName: 'Whats-Up',
-    },
-    {
-        course: 'DotNet',
-        Instructor: 'Keanna',
-        Students: ['Oli', 'Gisselle', 'Pru'],
-        GroupName: 'Lol',
-    },
+  {
+    course: 'Java',
+    Instructor: 'David',
+    Students: ['Lincoln', 'Ruth', 'Briana', 'Suzy', 'Greta'],
+    GroupName: 'Stars',
+  },
+  {
+    course: 'JavaScript',
+    Instructor: 'Van',
+    Students: ['Alphonso', 'Daley', 'Dax', 'Karter', 'Jorja'],
+    GroupName: 'Nerd-ware',
+  },
+  {
+    course: 'Python',
+    Instructor: 'Delaney',
+    Students: ['Barney', 'Kalé', 'Alisha'],
+    GroupName: 'Whats-Up',
+  },
+  {
+    course: 'DotNet',
+    Instructor: 'Keanna',
+    Students: ['Oli', 'Gisselle', 'Pru'],
+    GroupName: 'Lol',
+  },
 ];
 
 const getInfo = (arr) => {
-    let coursesName = [];
-    let studentsName = [];
-    /*let test=[];
-    let entries=[];
-    // write your code here
-   // let entries = Object.entries(obj);
-    for(let i =0 ; i< arr.length ; i++){
-         entries = Object.entries(arr[i]);
-        for(let x=0 ; x<entries.length ; x++){
-            if(x==0){
-                coursesName.push(entries[0][1]);
-            }else if(x==2){
-                test.push(entries[2][1]);
+  let coursesName = [];
+  let studentsName = [];
+  // write your code here
+  /*let test=[];
+  let entries=[];
+  // write your code here
+ // let entries = Object.entries(obj);
+  for(let i =0 ; i< arr.length ; i++){
+       entries = Object.entries(arr[i]);
+      for(let x=0 ; x<entries.length ; x++){
+          if(x==0){
+              coursesName.push(entries[0][1]);
+          }else if(x==2){
+              test.push(entries[2][1]);
 
-            }
-        }
+          }
+      }
 
-    }
-    for(let y =0 ; y< test.length ; y++){
-       for(let n=0 ; n<test[y].length ; n++){
-            
-            studentsName.push(test[y][n]);
-   }
-  // function getCourseName(){
+  }
+  for(let y =0 ; y< test.length ; y++){
+     for(let n=0 ; n<test[y].length ; n++){
+          
+          studentsName.push(test[y][n]);
+ }
+// function getCourseName(){
 
-  // }
-    return { coursesName, studentsName };
-    */
+// }
+  return { coursesName, studentsName };
+  */
+   return { coursesName, studentsName };
 };
 
 //  ------------------------------------------------------------------------------------------------------
@@ -164,14 +168,14 @@ const getInfo = (arr) => {
 //  ------------------------------------------------------------------------------------------------------
 
 const getStudents = (arr) => {
-    // write your code here
+  // write your code here
 
 };
 
 module.exports = {
-    customerAndAge,
-    getEntries,
-    courses,
-    getInfo,
-    getStudents,
+  customerAndAge,
+  getEntries,
+  courses,
+  getInfo,
+  getStudents,
 };
