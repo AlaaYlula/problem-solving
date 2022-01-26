@@ -122,8 +122,7 @@ const getInfo = (arr) => {
   // write your code here
   let test=[];
   let entries=[];
-  // write your code here
- // let entries = Object.entries(obj);
+  
   for(let i =0 ; i< arr.length ; i++){
        entries = Object.entries(arr[i]);
       for(let x=0 ; x<entries.length ; x++){
