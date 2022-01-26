@@ -120,7 +120,7 @@ const getInfo = (arr) => {
   let coursesName = [];
   let studentsName = [];
   // write your code here
-  /*let test=[];
+  let test=[];
   let entries=[];
   // write your code here
  // let entries = Object.entries(obj);
@@ -141,12 +141,15 @@ const getInfo = (arr) => {
           
           studentsName.push(test[y][n]);
  }
+}
 // function getCourseName(){
 
 // }
+//console.log(coursesName);
+//console.log(studentsName);
+
   return { coursesName, studentsName };
-  */
-   return { coursesName, studentsName };
+  
 };
 
 //  ------------------------------------------------------------------------------------------------------
