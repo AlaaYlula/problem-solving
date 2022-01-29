@@ -178,6 +178,7 @@ const getStudents = (arr) => {
   }
 
   let result = [];
+  /*
   for (let i = 0; i <  courses.length; i++) { // For each Cource
     for (let j = 0; j < courses[i].Students.length; j++) { // For each student array
       for (let x = 0; x < arr.length; x++) {  // for each student input
@@ -190,7 +191,43 @@ const getStudents = (arr) => {
     }
   }
   console.log(result);
-   return result;
+   return result.sort();
+   */
+  /*
+   for (let j = 0; j < arr.length; j++)  { // For each Cource
+    
+      for (let i = 0; i <  courses.length; i++){// For each student array
+          for (let x = 0; x < courses[i].Students.length; x++) {  // for each student input
+             if( courses[i].Students[x] == arr[j]){
+                let stud = new Result (arr[j] ,courses[i].course);
+                result.push(stud);
+           }
+
+        }
+    }
+  }
+  console.log(result);
+   return result.sort();
+  */
+ 
+ arr.forEach((studentS)=>{
+     courses.forEach( (classS) => {
+
+  
+    //console.log(studentS);
+        classS.Students.forEach((studentin)=>{
+          if(studentS== studentin){
+            //console.log(studentin);
+            let stud = new Result (studentS ,classS.course);
+            result.push(stud);
+          }
+        });
+       
+  });
+});
+console.log(result);
+return result;
+
 }
 
 
