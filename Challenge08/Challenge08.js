@@ -178,7 +178,7 @@ const getStudents = (arr) => {
   }
 
   let result = [];
-  /*
+  /* This wrong because the diffirent sort of the elemnts of array : 
   for (let i = 0; i <  courses.length; i++) { // For each Cource
     for (let j = 0; j < courses[i].Students.length; j++) { // For each student array
       for (let x = 0; x < arr.length; x++) {  // for each student input
@@ -193,11 +193,11 @@ const getStudents = (arr) => {
   console.log(result);
    return result.sort();
    */
-  /*
-   for (let j = 0; j < arr.length; j++)  { // For each Cource
+  /* Must start with the array of names : 
+   for (let j = 0; j < arr.length; j++)  { // For each name
     
-      for (let i = 0; i <  courses.length; i++){// For each student array
-          for (let x = 0; x < courses[i].Students.length; x++) {  // for each student input
+      for (let i = 0; i <  courses.length; i++){// For each course
+          for (let x = 0; x < courses[i].Students.length; x++) {  // for each student in course
              if( courses[i].Students[x] == arr[j]){
                 let stud = new Result (arr[j] ,courses[i].course);
                 result.push(stud);
@@ -211,10 +211,7 @@ const getStudents = (arr) => {
   */
  
  arr.forEach((studentS)=>{
-     courses.forEach( (classS) => {
-
-  
-    //console.log(studentS);
+     courses.forEach( (classS) => { 
         classS.Students.forEach((studentin)=>{
           if(studentS== studentin){
             //console.log(studentin);
@@ -225,7 +222,7 @@ const getStudents = (arr) => {
        
   });
 });
-console.log(result);
+//console.log(result);
 return result;
 
 }
