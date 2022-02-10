@@ -10,15 +10,24 @@
 // ------------------------
 
 const findMax = (arr) => {
-    let max;
-    max = arr[0];
-    // write your code here
-    for (let i = 1; i <= arr.length; i++) {
-        if (arr[i] >= max) {
-            max = arr[i];
-        }
-    }
-    return max;
+    //  let max;
+    //  max = arr[0];
+    // // write your code here
+    // for (let i = 1; i <= arr.length; i++) {
+    //     if (arr[i] >= max) {
+    //         max = arr[i];
+    //     }
+    // }
+    // return max;
+    let maxres = arr.reduce(function(acc,value) {
+            if(value >= acc){
+                return value;
+            }else{
+                return acc;
+            }
+    },0);
+    return maxres;
+
 }
 
 // 2) ---------------------
@@ -31,16 +40,26 @@ const findMax = (arr) => {
 // ------------------------
 
 const sumNums = (arr) => {
-    let sum;
     // write your code here
-    sum = 0;
-    for (let i = 0; i <= arr.length; i++) {
-        if (typeof arr[i] == "number") {
-            sum = sum + arr[i];
-        } else {
-            continue;
-        }
-    }
+    // let sum;
+    // sum = 0;
+    // for (let i = 0; i <= arr.length; i++) {
+    //     if (typeof arr[i] == "number") {
+    //         sum = sum + arr[i];
+    //     } else {
+    //         continue;
+    //     }
+    // }
+    // return sum;
+
+    let sum = arr.reduce((acc,value) =>{
+            if(typeof value == "number"){
+                acc= acc+value;
+                return acc;
+            }else{
+                return acc;
+            }
+    },0);
     return sum;
 }
 
@@ -54,11 +73,25 @@ const sumNums = (arr) => {
 // ------------------------
 const reverseArray = (arr) => {
     // write your code here
-    let reverseArray1 = [];
-    for (let i = arr.length - 1; i >= 0; i--) {
-        reverseArray1.push(arr[i]);
-    }
-    return reverseArray1;
+    // let reverseArray1 = [];
+    // for (let i = arr.length - 1; i >= 0; i--) {
+    //     reverseArray1.push(arr[i]);
+    // }
+    // return reverseArray1;
+
+    //2nd
+    // let reverse = [];
+    // arr.forEach((element)=>{
+    //     return reverse.unshift(element);
+    // });
+    // return reverse;
+
+    //3rd
+    let reverse = arr.reduce((acc,value) =>{
+        acc.unshift(value);
+        return acc;
+    },[])
+    return reverse
 }
 
 module.exports = { findMax, sumNums, reverseArray };
