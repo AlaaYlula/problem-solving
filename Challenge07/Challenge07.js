@@ -21,9 +21,9 @@
 const objLat = (obj) => {
 
     let value;
-    value=  Object.values(obj);
-    value[0]=value[0].charAt(0).toUpperCase()+value[0].slice(1);
-    value[1]=value[1].charAt(0).toUpperCase()+value[1].slice(1);
+    value = Object.values(obj);
+    value[0] = value[0].charAt(0).toUpperCase() + value[0].slice(1);
+    value[1] = value[1].charAt(0).toUpperCase() + value[1].slice(1);
 
     return `my name is ${value[0]} ${value[1]} I am ${value[2]} YO, and I love ${value[3]}.`;
 
@@ -93,44 +93,60 @@ const objLat = (obj) => {
 const cvFormatter = (arr) => {
 
     // write your code here
-        let exp=[]; // has the Exp > 1 
-        let x=0;
-        for (let i=0; i < arr.length; i++) {
-            if (arr[i].yearsOfExperience > 1) {
-                exp[x] = arr[i];
-                x++;
-            }
-        }
+    //     let exp=[]; // has the Exp > 1 
+    //     let x=0;
+    //     for (let i=0; i < arr.length; i++) {
+    //         if (arr[i].yearsOfExperience > 1) {
+    //             exp[x] = arr[i];
+    //             x++;
+    //         }
+    //     }
 
-  //  let fullNameArray = exp.map(getFullname);
-       /*function getFullname(item){
-            return [item.firstName,item.astName].join(" ");
-        }
-        */
-       
-        let finalArray = function(exp) {
-            return exp.map(function(exp1){
-                let newObj={};
-                    if (exp1.firstName ==null) {
-                        newObj["fullName"] = exp1.lastName; 
-                        newObj["tech"]= exp1.tech ; 
-                    }else if(exp1.lastName ==null)
-                    {
-                        newObj["fullName"] = exp1.firstName;
-                        newObj["tech"]= exp1.tech ; 
+    //     let finalArray = function(exp) {
+    //         return exp.map(function(exp1){
+    //             let newObj={};
+    //                 if (exp1.firstName ==null) {
+    //                     newObj["fullName"] = exp1.lastName; 
+    //                     newObj["tech"]= exp1.tech ; 
+    //                 }else if(exp1.lastName ==null)
+    //                 {
+    //                     newObj["fullName"] = exp1.firstName;
+    //                     newObj["tech"]= exp1.tech ; 
 
-                    }else {
-                        newObj["fullName"] = `${exp1.firstName} ${exp1.lastName}`; 
-                        newObj["tech"]= exp1.tech ; 
-                    }
-            
-                return newObj;
-            })
-        }
-        let finallArraySave = finalArray(exp);
-     
-      return finallArraySave;
+    //                 }else {
+    //                     newObj["fullName"] = `${exp1.firstName} ${exp1.lastName}`; 
+    //                     newObj["tech"]= exp1.tech ; 
+    //                 }
 
+    //             return newObj;
+    //         })
+    //     }
+    //     let finallArraySave = finalArray(exp);
+
+    //   return finallArraySave;
+
+
+    //2nd : 
+    let exparray = arr.filter((element, index) => {
+        return (element.yearsOfExperience > 1);
+    });
+
+    let finallarray = exparray.map((item, index) => {
+        let newObj = {};
+        if (item.firstName == null) {
+            newObj["fullName"] = item.lastName;
+            newObj["tech"] = item.tech;
+        } else if (item.lastName == null) {
+            newObj["fullName"] = item.firstName;
+            newObj["tech"] = item.tech;
+        } else {
+            newObj["fullName"] = `${item.firstName} ${item.lastName}`;
+            newObj["tech"] = item.tech;
+        }
+        return newObj;
+    });
+
+    return finallarray;
 };
 
 // 3) ---------------------
@@ -164,36 +180,36 @@ const applicationsStatics = (arr) => {
         rejectedApplicants: 0,
     }
 
-    function isEmpty(value){
+    function isEmpty(value) {
         return (value == null || value == " ");
-      }
+    }
 
     result.totalApplicants = arr.length;
-    
-    for (let i=0; i < arr.length; i++) {
-        if(( isEmpty(arr[i].firstName) || isEmpty(arr[i].lastName))){
+
+    for (let i = 0; i < arr.length; i++) {
+        if ((isEmpty(arr[i].firstName) || isEmpty(arr[i].lastName))) {
             result.rejectedApplicants++;
 
         }
-        else if (arr[i].yearsOfExperience < 1 ) {
+        else if (arr[i].yearsOfExperience < 1) {
             result.rejectedApplicants++;
         }
     }
 
-    for (let i=0; i < arr.length; i++) {
-        if(arr[i].tech == "JS"){
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].tech == "JS") {
             result.javaScript_Devs++;
-        }else if(arr[i].tech == "Java"){
+        } else if (arr[i].tech == "Java") {
             result.java_Devs++;
-        }else if(arr[i].tech == "Python"){
+        } else if (arr[i].tech == "Python") {
             result.python_Devs++;
-        }else if(arr[i].tech == ".Net"){
+        } else if (arr[i].tech == ".Net") {
             result.dotNet_Devs++;
         }
     }
 
 
-    
+
     //console.log(result);
     return result;
 };
@@ -321,21 +337,17 @@ let data = {
 
 const classesAvg = (data) => {
     // write your code here
-    let sum=0;
+    let sum = 0;
     //console.log(data.grades.length);
-    for(let i=0 ; i < data.grades.length ; i++){
-       for(let x=0 ; x < data.grades[i].numberOFClasses ; x++){
-            sum = data.grades[i].classes[x].classScores.reduce(function(a,b){return a+b},0);
-            // data.grades[i].classes[x].classScores.forEach(y => {
-             //    sum += y ;
-             // });
-           // sum = lodash.sum(data.grades[i].classes[x].classScores);
+    for (let i = 0; i < data.grades.length; i++) {
+        for (let x = 0; x < data.grades[i].numberOFClasses; x++) {
+            sum = data.grades[i].classes[x].classScores.reduce(function (a, b) { return a + b }, 0);
             data.grades[i].classes[x].avg = Math.floor(sum / (data.grades[i].classes[x].classScores.length));
         } //each class
-        sum=0;
-        }// each Grade 
+        sum = 0;
+    }// each Grade 
 
-    return data;   
+    return data;
 };
 
 module.exports = { objLat, cvFormatter, applicationsStatics, classesAvg };
