@@ -34,6 +34,7 @@ const customerAndAge = (obj) => {
     arr.push(`Customer Name :${property} , Age :${obj[property]}`);
   }
   return arr;
+
 };
 
 
@@ -62,22 +63,29 @@ const customerAndAge = (obj) => {
 
 const getEntries = (obj) => {
   // write your code here
-  let entries = Object.entries(obj);
+  // let entries = Object.entries(obj);
+  // let arr = [];
+  // let str = "";
+  // for (let i = 0; i < entries.length; i++) {
+  //   for (let x = 0; x < entries[i].length; x++) {
+  //     if (x == 0) {
+  //       str = str.concat(entries[i][x], ":");
+  //     } else {
+  //       str = str.concat(" ", entries[i][x]);
+
+  //     }
+  //   }
+  //   arr[i] = str;
+  //   str = "";
+  // }
+
+  // return arr;
+
+  //2nd:
   let arr = [];
-  let str = "";
-  for (let i = 0; i < entries.length; i++) {
-    for (let x = 0; x < entries[i].length; x++) {
-      if (x == 0) {
-        str = str.concat(entries[i][x], ":");
-      } else {
-        str = str.concat(" ", entries[i][x]);
-
-      }
-    }
-    arr[i] = str;
-    str = "";
+  for (let property in obj) {
+    arr.push(`${property}: ${obj[property]}`)
   }
-
   return arr;
 };
 
@@ -117,37 +125,55 @@ const courses = [
 ];
 
 const getInfo = (arr) => {
-  let coursesName = [];
-  let studentsName = [];
   // write your code here
-  let test = [];
-  let entries = [];
-  // write your code here
-  // let entries = Object.entries(obj);
-  for (let i = 0; i < arr.length; i++) {
-    entries = Object.entries(arr[i]);
-    for (let x = 0; x < entries.length; x++) {
-      if (x == 0) {
-        coursesName.push(entries[0][1]);
-      } else if (x == 2) {
-        test.push(entries[2][1]);
 
+  //   let coursesName = [];
+  //   let studentsName = [];
+  //   let test = [];
+  //   let entries = [];
+  //   for (let i = 0; i < arr.length; i++) {
+  //     entries = Object.entries(arr[i]);
+  //     for (let x = 0; x < entries.length; x++) {
+  //       if (x == 0) {
+  //         coursesName.push(entries[0][1]);
+  //       } else if (x == 2) {
+  //         test.push(entries[2][1]);
+
+  //       }
+  //     }
+
+  //   }
+  //   for (let y = 0; y < test.length; y++) {
+  //     for (let n = 0; n < test[y].length; n++) {
+
+  //       studentsName.push(test[y][n]);
+  //     }
+  //   }
+  // console.log(coursesName)
+  // console.log(studentsName)
+
+  //   return { coursesName, studentsName };
+  
+  //2nd:
+  let coursesName = [];
+  arr.forEach((obj) => {
+    for (let property in obj) {
+      if (property == 'course')
+        coursesName.push(`${obj[property]}`)
+    }
+  });
+  let studentsName = [];
+  arr.forEach((obj) => {
+    for (let property in obj) {
+      if (property == 'Students') {
+
+        obj[property].forEach((stu) => {
+          studentsName.push(stu)
+        });
       }
     }
-
-  }
-  for (let y = 0; y < test.length; y++) {
-    for (let n = 0; n < test[y].length; n++) {
-
-      studentsName.push(test[y][n]);
-    }
-  }
-  // function getCourseName(){
-
-  // }
-  //console.log(coursesName);
-  //console.log(studentsName);
-
+  });
+  
   return { coursesName, studentsName };
 
 };
@@ -209,21 +235,20 @@ const getStudents = (arr) => {
   console.log(result);
    return result.sort();
   */
- 
- arr.forEach((studentS)=>{
-     courses.forEach( (classS) => { 
-        classS.Students.forEach((studentin)=>{
-          if(studentS== studentin){
-            //console.log(studentin);
-            let stud = new Result (studentS ,classS.course);
-            result.push(stud);
-          }
-        });
-       
+
+  arr.forEach((studentS) => {
+    courses.forEach((classS) => {
+      classS.Students.forEach((studentin) => {
+        if (studentS == studentin) {
+          //console.log(studentin);
+          let stud = new Result(studentS, classS.course);
+          result.push(stud);
+        }
+      });
+
+    });
   });
-});
-//console.log(result);
-return result;
+  return result;
 
 }
 
